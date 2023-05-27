@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, Router, Routes } from "react-router-dom";
+import { Home } from "./Components/HOME";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
 
