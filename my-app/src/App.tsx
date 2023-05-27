@@ -8,8 +8,9 @@ import { firebaseConfig } from "./firebaseConfig";
 import { Home } from "./Components/Home";
 import { PostListPage } from "./Components/PostsList";
 import { Post } from "./Components/Post";
+import { useApp } from "./hooks/useApp";
 
-const app = initializeApp(firebaseConfig);
+
 
 export type PostType = {
 	id?: number;
@@ -21,6 +22,8 @@ export type PostType = {
 };
 
 function App() {
+  const posts = useApp();
+  const app = initializeApp(firebaseConfig);
 	return  (
   
       <div>
@@ -28,7 +31,7 @@ function App() {
           <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts/:id" element={<Post />} />
-        {/* <Route path="/posts" element={<PostListPage {list}/>} /> */}
+        {/* <Route path="/posts" element={<PostListPage {}/>} /> */}
       </Routes>
       </BrowserRouter>
       </div>
