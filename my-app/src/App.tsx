@@ -2,44 +2,36 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "./App.scss";
-import { Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
-import { Home } from "./Components";
+import { Home } from "./Components/Home";
+import { PostListPage } from "./Components/PostsList";
 
 const app = initializeApp(firebaseConfig);
 
 export type PostType = {
-  id?: number;
-  title: string;
-  body: string;
-  userId: number;
-  tags: string[];
-  reactions?: number;
+	id?: number;
+	title: string;
+	body: string;
+	userId: number;
+	tags: string[];
+	reactions?: number;
 };
 
 function App() {
-
+	return  (
   
-	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-      <Home />
-		</div>
-	);
+      <div>
+        <BrowserRouter>
+          <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/posts" element={<PostListPage {list}/>} /> */}
+      </Routes>
+      </BrowserRouter>
+      </div>
+   
+  );
 }
 
 export default App;
