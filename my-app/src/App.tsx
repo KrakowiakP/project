@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebaseConfig";
 import { Home } from "./Components/Home";
 import { PostListPage } from "./Components/PostsList";
+import { Post } from "./Components/Post";
 
 const app = initializeApp(firebaseConfig);
 
@@ -26,6 +27,7 @@ function App() {
         <BrowserRouter>
           <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/posts/:id" element={<Post />} />
         {/* <Route path="/posts" element={<PostListPage {list}/>} /> */}
       </Routes>
       </BrowserRouter>
