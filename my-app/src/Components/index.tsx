@@ -1,4 +1,6 @@
+import "../App.scss";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	return (
